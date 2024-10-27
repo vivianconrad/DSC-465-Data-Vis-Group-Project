@@ -1,0 +1,20 @@
+run = "R -s -f main.r"
+
+entrypoint = "main.r"
+
+hidden = [".Rprofile", "Rconfig.json", "Rconfig.lock.json"]
+
+[env]
+R_LIBS_USER = "$REPL_HOME/.config/R"
+
+[nix]
+channel = "stable-24_05"
+
+[packager]
+language = "rlang"
+
+[packager.features]
+packageSearch = true
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".Rprofile"]
